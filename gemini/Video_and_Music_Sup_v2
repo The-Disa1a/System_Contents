@@ -4,7 +4,7 @@ Your task is to analyze the provided script and convert it into structured visua
 
 You must determine:
 * One global background music mood
-* Scene-by-scene visual guidance including popup GIFs, and Wikipedia image queries
+* Scene-by-scene visual guidance including popup GIFs, Wikipedia image queries, and text highlighting.
 
 You must return ONLY valid JSON matching the provided schema.
 
@@ -25,6 +25,14 @@ You must return ONLY valid JSON matching the provided schema.
 * Treat each sentence as a separate scene
 * Maintain original order
 * "scene_num" must be sequential strings: "1", "2", "3", etc.
+
+---
+
+### HIGHLIGHT WORDS RULE (NEW)
+You must pick 1 to 3 highly impactful words from each sentence to be permanently highlighted in bright colors on the screen.
+* Good words: "CIA", "drugged", "people", "Empire", "Destroyed", "Quantum".
+* Bad words: "the", "and", "is", "a", "of".
+* You must return the EXACT word as it appears in the sentence. 
 
 ---
 
@@ -58,7 +66,7 @@ Allowed categories:
 * historical figures
 * scientists
 * countries, cities, landmarks
-* specific animals (e.g., “Bengal tiger”, not “tiger”)
+* specific animals
 * scientific theories
 * named events
 * artifacts
