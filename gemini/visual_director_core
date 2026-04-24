@@ -165,6 +165,7 @@ Restrictions:
 * Use only from available_transitions
 * Apply only when there is a clear shift
 * Otherwise return ""
+* Don't add transitions at the last scene. ex: if the video have 4 scenes , then don't put transition at the 4th scene. cause it will not be seen. 
 
 ---
 
