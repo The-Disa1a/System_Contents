@@ -30,7 +30,15 @@ You must return ONLY valid JSON matching the provided schema.
 ---
 
 ### ENHANCED_TEXT
+### GEMINI TTS DIRECTING RULE (CRITICAL)
+Your "enhanced_text" MUST be a string perfectly matching this Cookbook Format:
 
+# AUDIO PROFILE: The Storyteller
+## THE SCENE: A dimly lit room with intense, cinematic lighting.
+### DIRECTOR'S NOTES
+Style: Energetic, extremely engaging, fast-paced retention format.
+Pace: Fast, like a native speaker keeping viewers hooked.
+#### TRANSCRIPT[Your modified TTS text goes here. Inject native Gemini audio tags like [excited], [serious], [whispers], [gasp] directly into the text to control the emotion.]
 * Return a clean, continuous narration string
 * Do NOT break into scenes
 * Do NOT include scene-level text
