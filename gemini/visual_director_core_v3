@@ -34,28 +34,23 @@ Your objective is to analyze the provided TTS script and break it down into high
                     """ Prompting Strategy: Audio Profile, Scene, Director's Notes, and Audio Tags
                             A robust prompt ideally includes these elements:
 
-                                Audio Profile — Establishes a persona for the voice: character identity, name, archetype, and background.
-                                Scene — Sets the stage, describing the physical environment and the emotional "vibe".
-                                Director's Notes — Performance guidance covering style, pacing, accent, and articulation.
-                                Sample Context — Gives the model a contextual starting point so your "virtual actor" enters the scene naturally.
-                                Transcript — The actual text the model will speak.
-                                Audio Tags — Inline modifiers in square brackets (e.g. [whispers], [shouting]) placed in the transcript to change how specific parts are delivered.
-
-                        For optimal performance, the transcript and directorial prompts should align — "who is saying it" should match "what is said" and "how it is being said." 
-                        
-                        Tips for Director's Notes
-                            You don't need to include every element — sometimes giving the model space to fill in the gaps helps naturalness (just like a talented actor). Define only what's important to the performance, being careful not to overspecify. Too many strict rules will limit the model's creativity and may result in a worse performance.
-
+                              Audio Profile — Establishes a persona for the voice: character identity, name, archetype, and background.
+                              Scene — Sets the stage, describing the physical environment and the emotional "vibe".
+                              Director's Notes — Performance guidance covering style, pacing, accent, and articulation.
                                 Style — Sets the tone of the generated speech. Be descriptive: "Infectious enthusiasm. The listener should feel like they are part of a massive, exciting community event." works better than simply saying "energetic and enthusiastic". You can even try voiceover industry terms like "vocal smile". Layer as many style characteristics as you want.
-                                Accent — The more specific you are, the better. Use "British English accent as heard in Croydon, England" rather than "British accent".
-                                Pacing — Control overall speed and variation. Examples range from simple ("Speak as fast as possible") to complex ("The Drift: The tempo is incredibly slow and liquid. Words bleed into each other. There is zero urgency.").
+                                Accent — The more specific you are, the better.
+                                Pacing — Control overall speed and variation. 
                                 Audio tags - You can change how words, sentences, or sections of your transcript are delivered by using audio tags — words in square brackets that indicate how something should be said, a change of tone, or an interjection.
+                                  working tags : [amazed] [crying] [curious] [excited] [sighs] [gasp] [giggles] [laughs] [mischievously] [panicked] [sarcastic] [serious] [shouting] [tired] [trembling] [whispers], i think their are more than this. 
+                              Sample Context — Gives the model a contextual starting point so your "virtual actor" enters the scene naturally.
+                              Transcript — The actual text the model will speak.
+                              Audio Tags — Inline modifiers in square brackets (e.g. [whispers], [shouting]) placed in the transcript to change how specific parts are delivered.
+                        
+                            Tips for Director's Notes
+                              You don't need to include every element — sometimes giving the model space to fill in the gaps helps naturalness (just like a talented actor). Define only what's important to the performance, being careful not to overspecify. Too many strict rules will limit the model's creativity and may result in a worse performance."""
 
-                            There is no exhaustive list of what tags work. 
-                            Here are some commonly used tags to get started: [amazed][crying][curious][excited][sighs][gasp][giggles][laughs][mischievously][panicked][sarcastic][serious][shouting][tired][trembling][whispers]"""
-
-                    #so with these Strategy, build main hook(scene_01) + mini hooks + the last scene(loopable - match the scene_01 vibe). don't change the script , all you have to do is , enhance the blunt script to get the vibe + feeling
-                    #this is for a short soo, don't be slow, be fast paced. and in hard to understand parts , be lil slow, but faster than default speed. and has to have that kick to it not like sleeping. 
+                    #so with above cookbook, build main hook(scene_01) + mini hooks + the last scene(loopable - match the scene_01 vibe). don't change the script , all you have to do is , enhance the blunt script to get the vibe + feeling
+                    #this is for a short video soo, don't be slow, Speak as fast as possible. and in hard to understand parts , be lil slow, but faster than default speed. and has to have that kick to it not like sleeping. 
 
                     "hook(scene-1)": #hook , the first sentence of the user given script and "scene_num" : 1.  { 
                         "highlight_words": [
