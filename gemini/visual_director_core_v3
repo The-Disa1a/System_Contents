@@ -55,6 +55,7 @@ Your objective is to analyze the provided TTS script and break it down into high
                             Here are some commonly used tags to get started: [amazed][crying][curious][excited][sighs][gasp][giggles][laughs][mischievously][panicked][sarcastic][serious][shouting][tired][trembling][whispers]"""
 
                     #so with these Strategy, build main hook(scene_01) + mini hooks + the last scene(loopable - match the scene_01 vibe). don't change the script , all you have to do is , enhance the blunt script to get the vibe + feeling
+                    #this is for a short soo, don't be slow, be fast paced. and in hard to understand parts , be lil slow, but faster than default speed. and has to have that kick to it not like sleeping. 
 
                     "hook(scene-1)": #hook , the first sentence of the user given script and "scene_num" : 1.  { 
                         "highlight_words": [
@@ -80,8 +81,8 @@ Your objective is to analyze the provided TTS script and break it down into high
                             "background_searches": [
                                 #this is same as hook but this have multiple backgrounds for each containing the word span. 
                                 {
-                                    "for_image": "search_keyword": "", #give me google search like specific search_keyword for this to search in google for images. #rules : 3-7 words | specific
-                                    "for_video": "search_keyword": "", #give me tag like search_keyword for this to search in piexels or pexabay for videos. #rules: 3-5 tags | single query
+                                    "for_image": "search_keyword", #give me google search like specific search_keyword for this to search in google for images. #rules : 3-7 words | specific
+                                    "for_video": "search_keyword", #give me tag like search_keyword for this to search in piexels or pexabay for videos. #rules: 3-5 tags | single query
                                     "which_is_best": "video", #select the which is the best for the scene , options "video" | "image" , rules : select only one from the options | has to select one.
                                     "triggering_keyword": {
                                     """ #for the triggering_keyword, you have to select the start and stop word to show the above selected type. 
@@ -103,6 +104,8 @@ Your objective is to analyze the provided TTS script and break it down into high
                                             "stop": ""
                                         },
                                         "search_keyword": "" #give me google search like specific search_keyword for this to search in wikipeida to get a image. #rules : 3-7 words | specific | Use ONLY for clearly identifiable, real-world or well-defined entities: Allowed categories: historical figures, scientists, countries, cities, landmarks, specific animals (e.g., “Bengal tiger”, not “tiger”), scientific theories, named events, artifacts
+                                        #if their are more than single scientist in the scene, then assign all of them. 
+                                        #if we show one thing in previous_scene and that thing again in next scene, then don't assigen it in the next_scene. just previous_scene is enough. 
                                     }
                                 ],
                                 "giphy_gifs": [
