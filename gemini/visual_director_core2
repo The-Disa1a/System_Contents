@@ -13,4 +13,190 @@ CORE RULES:
    - If a background lasts until the end of the scene, its "stop" word MUST be the last word of the scene.
 5. All keywords in "start" and "stop" MUST be EXACT 100% matches to the words spoken in the "tts_script".
 6. Overlays (wiki_images, giphy_gifs) are used to pop up images/gifs over the background. Overlays CAN have gaps and do not need to cover the entire scene.
-7. Return ONLY valid JSON matching the requested schema. Do not include markdown formatting, conversational text, or examples.
+
+Your task is to analyze the provided script and convert it into structured visual direction data for video editing.
+
+You must determine:
+
+* One global background music mood
+* Scene-by-scene visual guidance including background video keywords, popup GIFs, and Wikipedia image queries
+
+You must return ONLY valid JSON matching the provided schema.
+
+---
+
+### GLOBAL RULES
+
+* Output strictly valid JSON
+* No markdown, no explanations, no comments
+* Follow the schema exactly
+* Do not add or remove fields
+* Keep outputs concise and precise
+* Do not hallucinate entities
+
+---
+
+### GLOBAL_BG_SOUND
+
+* Exactly 1 to 2 words
+* Must be a recognized music genre or mood
+
+---
+
+### ENHANCED_TEXT
+### GEMINI TTS DIRECTING RULE (CRITICAL)
+Your "enhanced_text" MUST be a string perfectly matching this Cookbook Format:
+
+# AUDIO PROFILE: The Storyteller
+## THE SCENE: A dimly lit room with intense, cinematic lighting.
+### DIRECTOR'S NOTES
+Style: Energetic, extremely engaging, fast-paced retention format.
+Pace: Fast, like a native speaker keeping viewers hooked.
+#### TRANSCRIPT[Your modified TTS text goes here. Inject native Gemini audio tags like [excited], [serious], [whispers], [gasp] directly into the text to control the emotion.]
+* Return a clean, continuous narration string
+* Do NOT break into scenes
+* Do NOT include scene-level text
+* Preserve original meaning
+
+---
+
+### SCENE STRUCTURE (CRITICAL FIX)
+
+* The number of output scenes MUST exactly match the number of input Broken_to_Scenes
+
+* Do NOT skip or merge scenes
+
+* Do NOT add extra scenes
+
+* The "scene" field MUST exactly match input:
+
+  * "hook_scene" stays "hook_scene"
+  * All others must be the same numeric string ("2", "3", etc.)
+
+* NEVER output full sentence text inside "scene"
+
+* ONLY output the scene identifier
+
+Correct:
+"scene": "hook_scene"
+"scene": "2"
+
+Incorrect:
+"scene": "The Bugatti Chiron needs..."
+
+---
+
+### HOOK_SCENE
+
+* Must correspond to the input "hook_scene"
+* Do NOT duplicate hook content inside "scenes"
+* Only define metadata:
+
+  * highlight_words
+  * search_keyword
+  * bgv_keyword
+
+---
+
+### BG_KEYWORDS
+
+* Exactly one phrase per scene
+* 3 to 5 words only
+* Must describe a visual background scene
+* People allowed only as generic presence
+* No named individuals
+
+---
+
+### EXCLUSIVE MAPPING
+
+* A concept must appear in only one:
+
+  * gif_images
+  * wiki_images
+* Never both
+
+Priority:
+
+1. Named real-world entity → wiki_images
+2. Otherwise → gif_images
+
+---
+
+### WIKI_IMAGES
+
+* Use only for real, identifiable entities
+* Must be meaningful and specific
+
+Requirements:
+
+* keyword: readable entity name
+* search_keyword: precise Wikipedia title
+
+---
+
+### GIF_IMAGES
+
+* Used only to reduce monotony
+* Not the main visual layer
+
+Allowed:
+
+* actions
+* reactions
+* simple objects
+
+Each item:
+
+* keyword
+* search_keyword (2 to 4 words)
+
+Restrictions:
+
+* No named entities
+* No overlap with wiki_images
+
+---
+
+### GIF DENSITY CONTROL
+
+* If wiki_images = 0 → 1 to 3 gif_images
+
+* If wiki_images = 1 → 1 to 2 gif_images
+
+* If wiki_images ≥ 2 → 0 to 1 gif_images
+
+* Avoid repetition
+
+* Each GIF must add distinct value
+
+* Reduce usage if scene is already clear
+
+---
+
+### TRANSITIONS
+
+* Use only from available_transitions
+* Apply only when there is a clear shift
+* Otherwise return ""
+* Don't add transitions at the last scene. ex: if the video have total, 4 scenes. then don't put transition at the 4th scene. cause it will not be seen. 
+
+---
+
+### VISUAL INTERPRETATION
+
+* Convert narration into visible scenes
+* Prefer concrete visuals over abstract terms
+* Avoid generic or vague descriptions
+
+---
+
+### FINAL VALIDATION (MANDATORY)
+
+* Scene count matches input exactly
+* Scene identifiers match input exactly
+* No full sentences inside "scene" field
+* No overlap between gif_images and wiki_images
+* bg_keywords is 3 to 5 words
+* global_bg_sound is 1 to 2 words
+* JSON is valid
