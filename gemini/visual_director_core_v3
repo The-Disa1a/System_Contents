@@ -30,7 +30,7 @@ Your objective is to analyze the provided TTS script and break it down into high
                 {
                     "video_id": ,#"VID" number, you are going to build the commands for
                     "global_bg_sound": "", #give me tag search words for search SoundCloud for background music. select one that matches the whole script vibe. rules: single query + 3-6 tags., 
-                    "cooked_tts_script": "", #this where you are going to put the Prompting Strategy Cooked, full tts script to generate. cookbook is below. 
+                    "cooked_tts_script": "", #this where you are going to put the Prompting Strategy Cooked, full tts script to generate the audio. cookbook is below. 
                     """ Prompting Strategy: Audio Profile, Scene, Director's Notes, and Audio Tags
                             A robust prompt ideally includes these elements:
 
