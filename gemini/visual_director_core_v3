@@ -51,6 +51,7 @@ Your objective is to analyze the provided TTS script and break it down into high
 
                     #so with above cookbook, build main hook(scene_01) + mini hooks + the last scene(loopable - match the scene_01 vibe). don't change the script , all you have to do is , enhance the blunt script to get the vibe + feeling
                     #this is for a short video soo, don't be slow, Speak as fast as possible. and in hard to understand parts , be lil slow, but faster than default speed. and has to have that kick to it not like sleeping. 
+                    #rules : if the "Full_TTS_Script" have around 80 - 90 words, then make the tts around 25s - 35s. | if the "Full_TTS_Script" have around 100 - 190 words, then make the tts around 40s - 60s. | Don't go too low on volume and speaking rate. 
 
                     "hook(scene-1)": #hook , the first sentence of the user given script and "scene_num" : 1.  { 
                         "highlight_words": [
