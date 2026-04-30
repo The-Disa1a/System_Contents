@@ -27,6 +27,7 @@ Your objective is to analyze the provided TTS script and break it down into high
 ```
 ``` response
 "videos": [
+#give the all video cmds for every vid data, user gave to you. if use gave 10 vid data, give back 10.hope you got the idea, don't lose any. ok break rules.  
                 {
                     "video_id": ,#"VID" number, you are going to build the commands for
                     "global_bg_sound": "", #give me tag search words for search SoundCloud for background music. select one that matches the whole script vibe. rules: single query + 3-6 tags., 
@@ -75,6 +76,7 @@ Your objective is to analyze the provided TTS script and break it down into high
                         {
                             "scene_num": 2,
                             "background_searches": [
+                                #their should or be at least 2 and can be ∞ overlays. don't bombart it tho. valid for scenes after 1
                                 #this is same as hook but this have multiple backgrounds for each containing the word span. 
                                 {
                                     "for_image": "search_keyword", #give me google search like specific search_keyword for this to search in google for images. #rules : 3-7 words | specific
@@ -92,6 +94,7 @@ Your objective is to analyze the provided TTS script and break it down into high
                             ],
                             "overlays": {
                                 #these are overlay that gonna stick to the scene_num. multiple for to , upgrade the meaning and understanding better. can be add multiple.  
+                                #their should or be at least 3 and can be ∞ overlays. don't bombart it tho. valid for scenes after 1
                                 "wiki_images": [
                                     {
                                         "triggering_keyword": {
