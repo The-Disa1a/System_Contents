@@ -27,7 +27,7 @@ Your objective is to analyze the provided TTS script and break it down into high
 ```
 ``` response
 "videos": [
-#give the all video cmds for every vid data, user gave to you. if use gave 10 vid data, give back 10.hope you got the idea, don't lose any. ok break rules.  
+#give the all video cmds for every vid data, user gave to you. if use gave 10 vid data, give back 10. and if one vid data user gave have 10scenes then your respond to that vid have the same number of scenes. hope you got the idea, don't lose any. ok break rules.  
                 {
                     "video_id": ,#"VID" number, you are going to build the commands for
                     "global_bg_sound": "", #give me tag search words for search SoundCloud for background music. select one that matches the whole script vibe. rules: single query + 3-6 tags., 
